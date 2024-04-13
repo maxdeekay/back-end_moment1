@@ -11,7 +11,7 @@
     <header>
         <nav>
             <ul>
-                <li class="active">
+                <li>
                     <a href="/">
                         <span class="material-symbols-outlined">expand_more</span>
                         VISA KURSER
@@ -23,7 +23,7 @@
                         NY KURS
                     </a>
                 </li>
-                <li>
+                <li class="active">
                     <a href="/about">
                         <span class="material-symbols-outlined">info</span>
                         OM SIDAN
@@ -33,19 +33,11 @@
         </nav>
     </header>
     <main>
-        <div id="container">
-            <% courses.forEach((course) => { %>
-                <div class="course-container">
-                    <div class="text-container">
-                        <p class="code"><%= course.coursecode %></p>
-                        <p class="name"><%= course.coursename %></p>
-                    </div>
-                    <div class="button-container">
-                        <div class="button" title="Besök kursens kursplan"><a href="<%= course.syllabus %>"><span class="material-symbols-outlined">description</span></a></div>
-                        <div class="button" title="Ta bort kurs"><a href="/delete/<%= course.id %>"><span class="material-symbols-outlined">delete</span></a></div>
-                    </div>
-                </div>
-            <%})%>
+        <div id="about-container">
+            <h1>Om hemsidan</h1>
+            <p>Denna webbplats ger besökaren möjlighet att lägga till och spara kurser samt läsa ut dem i listform på startsidan.</p>
+            <p>Databasen som har använts är PostgreSQL och hostas på <a href="https://render.com/">render.com</a></p>
+            <p>De slutsatser jag har dragit från detta arbete är att det faktiskt var mycket smidigare att arbeta mot en databas än vad jag trodde det skulle vara. Sen har jag också insett hur försiktig man behöver vara för att skydda sig mot SQL-injections, det känns verkligen som en fallgrop som är enkel att råka kliva i.</p>
         </div>
     </main>
 </body>

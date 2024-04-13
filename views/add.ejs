@@ -3,30 +3,66 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined" rel="stylesheet">
     <link rel="stylesheet" href="css/main.css">
     <title>Startsida</title>
 </head>
 <body>
-    <h1>Lägg till en kurs</h1>
+    <header>
+        <nav>
+            <ul>
+                <li>
+                    <a href="/">
+                        <span class="material-symbols-outlined">expand_more</span>
+                        VISA KURSER
+                    </a>
+                </li>
+                <li class="active">
+                    <a href="/add">
+                        <span class="material-symbols-outlined">add</span>
+                        NY KURS
+                    </a>
+                </li>
+                <li>
+                    <a href="/about">
+                        <span class="material-symbols-outlined">info</span>
+                        OM SIDAN
+                    </a>
+                </li>
+            </ul>
+        </nav>
+    </header>
 
-    <form method="post" action="/add">
-        <label for="coursecode">Kurskod</label>
-        <input type="text" id="coursecode" name="coursecode">
+    <div id="add-container">
+        <h1>Lägg till en kurs</h1>
 
-        <label for="coursename">Kursnamn</label>
-        <input type="text" id="coursename" name="coursename">
+        <form method="post" action="/add">
+            <div>
+                <label for="coursecode">Kurskod</label>
+                <input type="text" id="coursecode" name="coursecode">
+            </div>
 
-        <label for="syllabus">Syllabus</label>
-        <input type="text" id="syllabus" name="syllabus">
+            <div>
+                <label for="coursename">Kursnamn</label>
+                <input type="text" id="coursename" name="coursename">
+            </div>
 
-        <label for="progression">Progression</label>
-        <select id="progression" name="progression">
-            <option value="A">A</option>
-            <option value="B">B</option>
-            <option value="C">C</option>
-        </select>
+            <div>
+                <label for="progression">Progression</label>
+                <select id="progression" name="progression">
+                    <option value="A">A</option>
+                    <option value="B">B</option>
+                    <option value="C">C</option>
+                </select>
+            </div>
 
-        <input type="submit" value="Lägg till kurs">
-    </form>
+            <div>
+                <label for="syllabus">Syllabus</label>
+                <input type="text" id="syllabus" name="syllabus">
+            </div>
+
+            <input type="submit" value="LÄGG TILL KURS">
+        </form>
+    </div>
 </body>
 </html>
