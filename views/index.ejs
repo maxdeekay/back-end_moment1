@@ -7,6 +7,28 @@
     <title>Startsida</title>
 </head>
 <body>
-    <h1>Startsida</h1>
+    <h1>Lagrade kurser</h1>
+
+    <table>
+        <thead>
+            <tr>
+                <th>Kurskod</th>
+                <th>Kursnamn</th>
+                <th>Progression</th>
+                <th>Syllabus</th>
+            </tr>
+        </thead>
+        <tbody>
+            <% courses.forEach((course) => { %>
+                <tr>
+                    <td><%= course.coursecode %></td>
+                    <td><%= course.coursename %></td>
+                    <td><%= course.progression %></td>
+                    <td><a href="<%= course.syllabus %>">Länk</a></td>
+                    <td><a href="/delete/<%= course.id %>">Ta bort kurs</a></td>
+                </tr>
+            <%})%>
+        </tbody>
+    </table>
 </body>
 </html>

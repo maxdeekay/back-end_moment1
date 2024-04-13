@@ -23,7 +23,7 @@ client.query(`
     DROP TABLE IF EXISTS courses;
     CREATE TABLE courses (
         id          SERIAL PRIMARY KEY,
-        coursecode  INTEGER,
+        coursecode  VARCHAR(255),
         coursename  VARCHAR(255),
         syllabus    VARCHAR(255),
         progression VARCHAR(2)
