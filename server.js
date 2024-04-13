@@ -41,7 +41,7 @@ app.get("/about", (req, res) => {
     res.render("about");
 });
 
-// Add course
+// Lägga till kurs
 app.post("/add", async (req, res) => {
     const course = {
         code: req.body.coursecode,
@@ -59,7 +59,7 @@ app.post("/add", async (req, res) => {
     res.redirect("/add");
 });
 
-// Delete course
+// Ta bort kurs
 app.get("/delete/:id", async (req, res) => {
     const id = req.params.id;
 
@@ -70,6 +70,7 @@ app.get("/delete/:id", async (req, res) => {
     res.redirect("/");
 });
 
+// Startar server på port från .env-fil
 app.listen(process.env.PORT, () => {
     console.log("Server started on port " + process.env.PORT);
 });

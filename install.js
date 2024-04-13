@@ -1,7 +1,7 @@
 const { Client } = require("pg");
 require("dotenv").config();
 
-// Anslut till databasen
+// Ansluter till databasen
 const client = new Client({
     host: process.env.DB_HOST,
     port: process.env.DB_PORT,
@@ -13,12 +13,13 @@ const client = new Client({
     }
 });
 
+// Felhantering
 client.connect((err) => {
     if (err) console.log("Fel vid anslutning" + err);
     else console.log("Ansluten till databasen...");
 });
 
-// Skapa tabell
+// Skapar tabell 'courses'
 client.query(`
     DROP TABLE IF EXISTS courses;
     CREATE TABLE courses (
