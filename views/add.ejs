@@ -64,5 +64,13 @@
             <input type="submit" value="LÄGG TILL KURS">
         </form>
     </div>
+    <script>
+        document.addEventListener("DOMContentLoaded", () => {
+            const queryString = window.location.search;
+            const queryParams = new URLSearchParams(queryString);
+            if (queryParams.get("error") === "MissingData") alert("Se till att fyll i samtliga fält.");
+            
+        });
+    </script>
 </body>
 </html>

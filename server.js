@@ -49,15 +49,28 @@ app.post("/add", async (req, res) => {
         syllabus: req.body.syllabus,
         progression: req.body.progression
     }
+    
+    // Validering
+    // Ser till så alla fält är ifyllda
+    if (!course.code || !course.name || !course.syllabus || !course.progression) {
+        res.redirect("/add?error=MissingData");
+        return;
+    }
+
+    // Ser till att progression endast innehåller ett eller två tecken. Gör ingen redirect eftersom det grafiska gränssnittet inte tillåter detta.
+    if (course.progression.length > 2) {
+        console.log("Progressionen får endast innehålla ett eller två tecken.");
+        return;
+    }
 
     const result = await client.query(`
         INSERT INTO courses (coursecode, coursename, syllabus, progression)
         VALUES($1, $2, $3, $4)
     `, [course.code, course.name, course.syllabus, course.progression]
     );
-
-    res.redirect("/add");
-});
+        res.redirect("/");
+    }
+);
 
 // Ta bort kurs
 app.get("/delete/:id", async (req, res) => {
